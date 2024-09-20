@@ -4,7 +4,7 @@ db_config = {
     'user': 'root',
     'password': '1234',
     'host': 'localhost',
-    'database': 'banco_de_dados'}
+    'database': 'ATIC'}
 
 
 def conectar():

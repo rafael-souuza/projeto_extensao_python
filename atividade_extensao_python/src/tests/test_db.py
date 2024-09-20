@@ -11,7 +11,7 @@ class TestDatabaseFunctions(unittest.TestCase):
     def test_salvar_dados_no_banco(self):
         try:
             salvar_dados_no_banco("Teste", "Equipamento", "BMP", "Problema")
-            # Você pode adicionar mais validações conforme necessário
+            
         except Exception as e:
             self.fail(f"salvar_dados_no_banco levantou uma exceção: {e}")
 

@@ -1,8 +1,8 @@
 -- Criar o banco de dados 
-CREATE DATABASE IF NOT EXISTS banco_de_dados;
+CREATE DATABASE IF NOT EXISTS ATIC;
 
 -- Usar o banco de dados criado
-USE banco_de_dados;
+USE ATIC;
 
 -- Criar a tabela 'relatorio'
 CREATE TABLE IF NOT EXISTS relatorio (
