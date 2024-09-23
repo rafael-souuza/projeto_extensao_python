@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import ttk
 from database.db import salvar_dados_no_banco
 
 def salvar_dados():
@@ -26,23 +27,35 @@ def salvar_dados():
 # Configuração da interface gráfica
 app = tk.Tk()
 app.title("Aplicativo de Relatório")
+app.geometry("600x400")  # Define um tamanho maior para a janela
+app.configure(bg="#f0f0f0")  # Cor de fundo
 
-tk.Label(app, text="Nome do Usuário").pack(pady=5)
-entry_nome = tk.Entry(app)
-entry_nome.pack(pady=5)
+# Estilo do ttk
+style = ttk.Style()
+style.configure("TLabel", font=("Helvetica", 12), background="#f0f0f0")
+style.configure("TEntry", font=("Helvetica", 12), padding=5)
+style.configure("TButton", font=("Helvetica", 12), padding=5)
 
-tk.Label(app, text="Equipamento").pack(pady=5)
-entry_equipamento = tk.Entry(app)
-entry_equipamento.pack(pady=5)
+# Adiciona os componentes à interface usando grid
+tk.Label(app, text="Nome do Usuário").grid(row=0, column=0, padx=20, pady=10, sticky="w")
+entry_nome = ttk.Entry(app)
+entry_nome.grid(row=0, column=1, padx=20, pady=10, sticky="ew")
 
-tk.Label(app, text="BMP").pack(pady=5)
-entry_bmp = tk.Entry(app)
-entry_bmp.pack(pady=5)
+tk.Label(app, text="Equipamento").grid(row=1, column=0, padx=20, pady=10, sticky="w")
+entry_equipamento = ttk.Entry(app)
+entry_equipamento.grid(row=1, column=1, padx=20, pady=10, sticky="ew")
 
-tk.Label(app, text="Problema").pack(pady=5)
-entry_problema = tk.Entry(app)
-entry_problema.pack(pady=5)
+tk.Label(app, text="BMP").grid(row=2, column=0, padx=20, pady=10, sticky="w")
+entry_bmp = ttk.Entry(app)
+entry_bmp.grid(row=2, column=1, padx=20, pady=10, sticky="ew")
 
-tk.Button(app, text="Salvar", command=salvar_dados).pack(pady=20)
+tk.Label(app, text="Problema").grid(row=3, column=0, padx=20, pady=10, sticky="w")
+entry_problema = ttk.Entry(app)
+entry_problema.grid(row=3, column=1, padx=20, pady=10, sticky="ew")
+
+tk.Button(app, text="Salvar", command=salvar_dados).grid(row=4, column=0, columnspan=2, pady=20)
+
+# Expande a coluna da entrada
+app.grid_columnconfigure(1, weight=1)
 
 app.mainloop()
