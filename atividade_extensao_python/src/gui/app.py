@@ -4,7 +4,6 @@ from tkinter import ttk
 from database.db import salvar_dados_no_banco
 
 def salvar_dados():
-    """Coleta os dados da interface e salva no banco de dados."""
     nome = entry_nome.get()
     equipamento = entry_equipamento.get()
     bmp = entry_bmp.get()
@@ -24,19 +23,16 @@ def salvar_dados():
     except Exception as e:
         messagebox.showerror("Erro", f"Erro: {e}")
 
-# Configuração da interface gráfica
 app = tk.Tk()
 app.title("Aplicativo de Relatório")
-app.geometry("600x400")  # Define um tamanho maior para a janela
-app.configure(bg="#f0f0f0")  # Cor de fundo
+app.geometry("600x400")  
+app.configure(bg="#f0f0f0")  
 
-# Estilo do ttk
 style = ttk.Style()
 style.configure("TLabel", font=("Helvetica", 12), background="#f0f0f0")
 style.configure("TEntry", font=("Helvetica", 12), padding=5)
 style.configure("TButton", font=("Helvetica", 12), padding=5)
 
-# Adiciona os componentes à interface usando grid
 tk.Label(app, text="Nome do Usuário").grid(row=0, column=0, padx=20, pady=10, sticky="w")
 entry_nome = ttk.Entry(app)
 entry_nome.grid(row=0, column=1, padx=20, pady=10, sticky="ew")
@@ -55,7 +51,6 @@ entry_problema.grid(row=3, column=1, padx=20, pady=10, sticky="ew")
 
 tk.Button(app, text="Salvar", command=salvar_dados).grid(row=4, column=0, columnspan=2, pady=20)
 
-# Expande a coluna da entrada
 app.grid_columnconfigure(1, weight=1)
 
 app.mainloop()
